@@ -1,0 +1,33 @@
+body{
+	background-image: url("weather-images.jpg");
+}
+.body-div{
+	background-color: lightblue;
+	margin:75px 100px 25px 100px;
+	text-align: center;
+	border:2px solid red;
+	border-bottom-left-radius: 25px;
+	border-bottom-right-radius: 25px;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+}
+h1{
+	color: blue;
+}
+.content{
+	color: purple;
+}
+.input{
+	padding-bottom: 20px;
+	display: block;
+}
+.button{
+	display: block;
+	padding-bottom: 10px;
+}
+.div{
+	color: purple;
+	text-align: center;
+	font-size: 22px;
+	font-weight: 700;
+}
