@@ -1,2 +1,46 @@
-# Weather-Update-Web-Page
-Web page created in this project updates the weather details of a specific city selected by us. I have used weatherbit API to get the weather conditions of that selected city.
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Weather Report</title>
+		<link rel="stylesheet" type="text/css" href="report.css">
+	</head>
+	<body>
+		<div class="body-div">
+			<i><h1><b>Weather report online</b></h1></i>
+			<span class="content">
+				<h2><i>City for temperature </i></h2>
+			</span>
+			<span class="input">
+				<input id="city">
+			</span>
+			<span class="button">
+				<button onclick="show_temp()"><i><b> Submit </b></i></button>
+			</span>
+		</div>
+		<div class="div">
+			<span><h2>Information of temperature in city you required. </h2></span>
+			<span style="display: block">
+				<span><i>Temperature :: </i></span><span id="temperature"></span>
+			</span>
+			<span style="display: block">
+				<span><i>Humidity :: </i></span><span id="humidity"></span>
+			</span>
+		</div>
+		<script type="text/javascript">
+			function show_temp(){
+				city = document.getElementById("city").value;
+				httpRequest = new XMLHttpRequest();
+				url = "https://api.weatherbit.io/v2.0/current?city="+city+"&key=c04240cbd4de4315b1261f6e61e32cc6";
+				httpRequest.open("GET",url);
+				httpRequest.send();
+				httpRequest.onreadystatechange = function(){
+					if (this.readyState == 4 && this.status == 200){
+						user_data = JSON.parse(this.responseText);
+						document.getElementById("temperature").innerHTML = user_data.data[0].temp;
+						document.getElementById("humidity").innerHTML = user_data.data[0].rh;
+					}
+				}
+			}
+		</script>
+	</body>
+</html>
